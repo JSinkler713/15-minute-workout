@@ -48,17 +48,17 @@ export default function TabTwoScreen() {
   }, [newExercises])
 
   let exercises = exercise.map((item) => (
-    <>
+    <View key={`${item.name}-exercise`}>
       <Text style={styles.exerciseTitle}>{item.name}</Text>
       <Text style={styles.reps}>reps {item.reps}</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-    </>
+    </View>
   ))
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Today's exercises</Text>
-      <Button style={styles.exerciseButton} title='Get different exercises' onPress={()=> { setNewExercises(true)}} />
+      <Button title='Get different exercises' onPress={()=> { setNewExercises(true)}} />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       {exercises}
       <Button onPress={()=> { setStartTimer(true)}} title='Start Workout' />
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: '10px',
+    marginBottom: 10,
   },
   exerciseTitle: {
     fontSize: 24,
-    marginBottom: '8px',
+    marginBottom: 8,
   },
   reps: {
     fontSize: 16,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   text: {
-    marginBottom: '10px',
+    marginBottom: 10,
   },
   exerciseButton: {
     marginVertical: 8,

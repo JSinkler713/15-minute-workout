@@ -1,37 +1,35 @@
-import {useState, useRef, useEffect} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import {View, Text} from 'react-native'
 
 const Timer = ({done, updateTime, startTime})=> {
   const [time, setTime] = useState(15*60)
   // timeRef.current starts at 15 minutes
   const [intervalId, setIntervalId] = useState<number>()
-  let timeRef = useRef(0)
+  let timeRef = useRef(30)
 
   useEffect(()=> {
-    if (startTime) {
+    if (!done) {
       const timerId: number = window.setInterval(()=> {
         console.log('updating time')
         timeRef.current--
         // pass it back up to App
-        updateTime(timeRef.current)
+        //updateTime(timeRef.current)
         setTime(timeRef.current)
       }, 1000)
       setIntervalId(timerId)
       return ()=> {clearInterval(timerId)}
     }
-  }, [startTime])
+  }, [])
 
   useEffect(()=> {
-    // if done typing
-    // stop interval
-    // get time
-    //
-    if (done == true) {
-      console.log('It took' + time + 'seconds')
+    if (time === 0) {
+      console.log('Its time')
       clearInterval(intervalId)
-
+    } else {
+      console.log(time)
+      console.log(timeRef)
     }
-  }, [done])
+  }, [setTime, time])
 
   return(
     <View>

@@ -11,7 +11,7 @@ export default function TabOneScreen({navigation}) {
     <View style={styles.container}>
       <Text style={styles.title}>Time to Workout</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <Button title='Get Workout' onPress={()=> {navigation.navigate('TabTwoScreen')}}>Get Exercises</Button>
+      <Button title='Get Workout' onPress={()=> {navigation.navigate('TabTwo')}}>Get Exercises</Button>
 
     </View>
   );

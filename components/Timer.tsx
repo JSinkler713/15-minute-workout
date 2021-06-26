@@ -1,14 +1,15 @@
 import React, {useState, useRef, useEffect} from 'react'
 import {View, Text} from 'react-native'
 
-const Timer = ({done, updateTime, startTime})=> {
+const Timer = ({done, updateTime, startTime, pause, restart})=> {
   const [time, setTime] = useState(15*60)
   // timeRef.current starts at 15 minutes
   const [intervalId, setIntervalId] = useState<number>()
-  let timeRef = useRef(30)
+  let timeRef = useRef(15*60)
+
 
   useEffect(()=> {
-    if (!done) {
+    if (!done && startTime) {
       const timerId: number = window.setInterval(()=> {
         console.log('updating time')
         timeRef.current--
@@ -19,7 +20,7 @@ const Timer = ({done, updateTime, startTime})=> {
       setIntervalId(timerId)
       return ()=> {clearInterval(timerId)}
     }
-  }, [])
+  }, [startTime])
 
   useEffect(()=> {
     if (time === 0) {

@@ -54,7 +54,7 @@ export default function TabTwoScreen() {
       <Text style={styles.reps}>reps {item.reps}</Text>
       {(i !== 3) ?(
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      ) : ''}
+      ) :<View /> }
     </View>
   ))
 

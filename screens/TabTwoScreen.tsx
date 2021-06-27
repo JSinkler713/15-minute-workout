@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'scroll',
+    flex: 1,
     flexGrow: 1,
   },
   title: {

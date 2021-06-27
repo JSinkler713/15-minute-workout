@@ -15,10 +15,11 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider style={{flex: 1}}>
+      <SafeAreaProvider >
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
       </SafeAreaProvider>
     );
   }
 }
+

@@ -22,3 +22,8 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   TabTwoScreen: undefined;
 };
+
+export type Exercise = {
+  name: string;
+  reps: number;
+}

@@ -7,15 +7,7 @@ import { Text, View } from '../components/Themed';
 import Timer from '../components/Timer';
 // import chooseExercise from '../utils/chooseExercise'
 import Exercises from '../constants/Exercises'
-
-console.log(Exercises)
-
-type Exercise = {
-  name: string;
-  reps: number;
-}
-
-//const arrayOfExercises: Exercise[] = [{name: 'pushups', reps: 10}, {name: 'squats', reps: 15}, {name: 'rope climbers', reps: 30}]
+import { Exercise } from '../types';
 
 function chooseExercises(exercises: Exercise[]): Exercise[] {
   let chosenExercises: Exercise[] = []

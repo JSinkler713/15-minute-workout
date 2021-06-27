@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, Button } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -61,7 +62,7 @@ export default function TabTwoScreen() {
       <Button title='Get different exercises' onPress={()=> { setNewExercises(true)}} />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       {exercises}
-      <Button onPress={()=> { setStartTimer(true)}} title='Start Workout' />
+      <Button color='green' onPress={()=> { setStartTimer(true)}} title='Start Workout' />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Timer done={false} startTime={startTimer} />
     </View>
@@ -70,9 +71,10 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'scroll',
+    flexGrow: 1,
   },
   title: {
     fontSize: 20,
@@ -82,12 +84,14 @@ const styles = StyleSheet.create({
   exerciseTitle: {
     fontSize: 24,
     marginBottom: 8,
+    textAlign: 'center'
   },
   reps: {
     fontSize: 16,
+    textAlign: 'center'
   },
   separator: {
-    marginVertical: 8,
+    marginVertical: 2,
     height: 1,
     width: '80%',
   },

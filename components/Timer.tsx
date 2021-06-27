@@ -4,13 +4,14 @@ import {View, Text} from 'react-native'
 const Timer = ({done, updateTime, startTime, pause, restart})=> {
   const [time, setTime] = useState(15*60)
   // timeRef.current starts at 15 minutes
-  const [intervalId, setIntervalId] = useState<number>()
+  const [intervalId, setIntervalId] = useState()
   let timeRef = useRef(15*60)
 
 
+  // should run when startTime changes
   useEffect(()=> {
     if (!done && startTime) {
-      const timerId: number = window.setInterval(()=> {
+      const timerId = setInterval(()=> {
         console.log('updating time')
         timeRef.current--
         // pass it back up to App

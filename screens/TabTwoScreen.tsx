@@ -48,11 +48,13 @@ export default function TabTwoScreen() {
     }
   }, [newExercises])
 
-  let exercises = exercise.map((item) => (
+  let exercises = exercise.map((item, i) => (
     <View key={`${item.name}-exercise`}>
       <Text style={styles.exerciseTitle}>{item.name}</Text>
       <Text style={styles.reps}>reps {item.reps}</Text>
+      {(i !== 3) ?(
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      ) : ''}
     </View>
   ))
 
@@ -73,7 +75,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   exerciseContainer: {
-    marginBottom: 16,
+    marginBottom: 2,
   },
   container: {
     alignItems: 'center',

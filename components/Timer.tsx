@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react'
-import {View, Text} from 'react-native'
+import {StyleSheet, View, Text} from 'react-native'
 
 const Timer = ({done, updateTime, startTime, pause, restart})=> {
   const [time, setTime] = useState(15*60)
@@ -35,10 +35,18 @@ const Timer = ({done, updateTime, startTime, pause, restart})=> {
 
   return(
     <View>
-      <Text>{Math.floor(time / 60)}:{Math.floor((time % 60)/10)}{time % 10}</Text>
+      <Text style={styles.timerStyle}>{Math.floor(time / 60)}:{Math.floor((time % 60)/10)}{time % 10}</Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+ timerStyle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  }
+});
 
 export default Timer
 

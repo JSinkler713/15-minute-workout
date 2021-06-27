@@ -60,16 +60,21 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Today's exercises</Text>
       <Button title='Get different exercises' onPress={()=> { setNewExercises(true)}} />
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {exercises}
-      <Button color='green' onPress={()=> { setStartTimer(true)}} title='Start Workout' />
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.bigSeperator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.exerciseContainer}>
+        {exercises}
+      </View>
+      <View style={styles.bigSeperator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Timer done={false} startTime={startTimer} />
+      <Button color='green' onPress={()=> { setStartTimer(true)}} title='Start Workout' />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  exerciseContainer: {
+    marginBottom: 16,
+  },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -91,8 +96,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center'
   },
+  bigSeperator: {
+    marginVertical: 8,
+    height: 2,
+    width: '90%',
+  },
   separator: {
     marginVertical: 2,
+    alignSelf: 'center',
     height: 1,
     width: '80%',
   },

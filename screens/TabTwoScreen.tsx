@@ -9,6 +9,7 @@ import Timer from '../components/Timer';
 import Exercises from '../constants/Exercises'
 import { Exercise } from '../types';
 
+type ButtonTitle = 'Start Workout' | 'Continue Workout' | 'Pause Workout'
 function chooseExercises(exercises: Exercise[]): Exercise[] {
   let chosenExercises: Exercise[] = []
   for (let i=0; i<4; i++) {
@@ -22,10 +23,22 @@ function chooseExercises(exercises: Exercise[]): Exercise[] {
   return chosenExercises
 }
 
+function displayButtonTitle(startTimer:Boolean, hasBeenStarted:Boolean):ButtonTitle {
+      if (!startTimer && !hasBeenStarted) {
+          return 'Start Workout'
+      } else if (!startTimer && hasBeenStarted) {
+        return 'Continue Workout'
+      } else {
+        return 'Pause Workout'
+      }
+}
+
+
 export default function TabTwoScreen() {
   const [exercise, setExercise] = React.useState([] as Exercise[])
   const [startTimer, setStartTimer] = React.useState(false)
   const [newExercises, setNewExercises] = React.useState(false)
+  const [hasBeenStarted, setHasBeenStarted] = React.useState(false)
 
   React.useEffect(()=> {
     let chosenExercises: Exercise[] = chooseExercises(Exercises)
@@ -60,7 +73,8 @@ export default function TabTwoScreen() {
       </View>
       <View style={styles.bigSeperator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Timer done={false} startTime={startTimer} />
-      <Button color='green' onPress={()=> { setStartTimer(true)}} title='Start Workout' />
+      <Button color='green' onPress={()=> { setStartTimer(!startTimer); if (!hasBeenStarted) {setHasBeenStarted(true)
+      }}} title={displayButtonTitle(startTimer, hasBeenStarted )}/>
     </View>
   );
 }

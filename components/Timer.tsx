@@ -12,7 +12,7 @@ const Timer = ({ done, updateTime, startTime, pause, restart }) => {
   async function playSound() {
     console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-                      require("../assets/sounds/Done.mp3")
+                      require("../assets/sounds/WorkoutFinished.mp3")
     );
     setSound(sound);
     console.log("Playing Sound");

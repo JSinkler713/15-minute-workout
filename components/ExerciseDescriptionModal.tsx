@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Image, Alert, Modal, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 
 export default function ExerciseDescriptionModal({name, imgs, description}) {
   const [modalVisible, setModalVisible] = useState(false);
+
+  if (imgs && imgs.length) {
+  var arrayOfImages = imgs.map((img:string, key:number)=> (
+    <Image key={key} source={{ uri:'../assets/images/squat.jpeg'}} style={{width: 400, height: 400}} />
+    ))
+  }
+
   return (
     <View style={styles.buttonView}>
       <Modal
@@ -16,6 +23,9 @@ export default function ExerciseDescriptionModal({name, imgs, description}) {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{name} description:</Text>
             <Text style={styles.modalText}>{description}</Text>
+            <View>
+              {arrayOfImages}
+            </View>
             
 
             <TouchableHighlight

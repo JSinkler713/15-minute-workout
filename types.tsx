@@ -26,4 +26,6 @@ export type TabTwoParamList = {
 export type Exercise = {
   name: string;
   reps: number;
+  description?: string;
+  imgs?: string[];
 }

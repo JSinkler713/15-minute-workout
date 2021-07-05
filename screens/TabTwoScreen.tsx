@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import Timer from '../components/Timer';
+import ExerciseDescriptionModal from '../components/ExerciseDescriptionModal'
 // import chooseExercise from '../utils/chooseExercise'
 import Exercises from '../constants/Exercises'
 import { Exercise } from '../types';
@@ -57,6 +58,7 @@ export default function TabTwoScreen() {
     <View key={`${item.name}-exercise`}>
       <Text style={styles.exerciseTitle}>{item.name}</Text>
       <Text style={styles.reps}>reps {item.reps}</Text>
+      <ExerciseDescriptionModal name={item.name} description={item.description} imgs={item.imgs} />
       {(i !== 3) ?(
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       ) :<View /> }

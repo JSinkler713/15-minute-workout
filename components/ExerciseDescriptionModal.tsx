@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Image, Alert, Modal, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Image, Alert, ScrollView, Modal, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import layout from '../constants/Layout'
+
 
 export default function ExerciseDescriptionModal({name, imgs, description}) {
   const [modalVisible, setModalVisible] = useState(false);
 
   if (imgs && imgs.length) {
   var arrayOfImages = imgs.map((img:string, key:number)=> (
-    <Image key={key} source={{ uri:'../assets/images/squat.jpeg'}} style={{width: 400, height: 400}} />
-    ))
+    <Image key={key} source={{ uri:`${img}`}} style={{width: 300, height: 300, ...styles.imageStyle}} />
+  ))
   }
+  
 
   return (
     <View style={styles.buttonView}>
@@ -23,9 +26,9 @@ export default function ExerciseDescriptionModal({name, imgs, description}) {
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{name} description:</Text>
             <Text style={styles.modalText}>{description}</Text>
-            <View>
+            <ScrollView  horizontal style={styles.scrollView}>
               {arrayOfImages}
-            </View>
+            </ScrollView>
             
 
             <TouchableHighlight
@@ -63,10 +66,15 @@ const styles = StyleSheet.create({
     top: -25,
     right: -55
   },
+  imageStyle: {
+    marginBottom: 10,
+    marginRight: 10,
+  },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
+    width: layout.window.width,
     padding: 10,
     alignItems: 'center',
     shadowColor: '#000',
@@ -77,6 +85,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+  },
+  scrollView: {
+    maxHeight: 400,
+    marginBottom: 10,
   },
   openButton: {
     backgroundColor: '#D5D5D5',
@@ -90,6 +102,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
+    fontSize: 24,
     marginBottom: 15,
     textAlign: 'center',
   },

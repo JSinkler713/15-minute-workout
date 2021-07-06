@@ -7,8 +7,8 @@ type Exercise = {
 
 const Exercises: Exercise[] = 
   [
-    {name: 'pushups', reps: 10, description: 'Form a plank on your hands and feet. Bend your elbows lowering your chest until it is right above the ground. Push back to starting position.', imgs: ['something', 'something', 'something']},
-    {name: 'squats', reps: 15, description: 'Stand with your knees at hip distance. Bend your knees lowering yourself down and back as if you were sitting in a chair. Stand back up to starting position.', imgs: ['../assets/images/squat.jpeg']},
+    {name: 'pushups', reps: 10, description: 'Form a plank on your hands and feet. Bend your elbows lowering your chest until it is right above the ground. Push back to starting position.', imgs: ['https://res.cloudinary.com/dbbthq6ra/image/upload/v1588463308/nhvcjicayo8cq8bu0maq.jpg', 'https://res.cloudinary.com/dbbthq6ra/image/upload/v1588463308/nhvcjicayo8cq8bu0maq.jpg', 'something']},
+    {name: 'squats', reps: 15, description: 'Stand with your knees at hip distance. Bend your knees lowering yourself down and back as if you were sitting in a chair. Stand back up to starting position.', imgs: ['https://res.cloudinary.com/dbbthq6ra/image/upload/v1588463308/nhvcjicayo8cq8bu0maq.jpg']},
     {name: 'rope climbers', reps: 30},
     {name: 'burpees', reps: 10},
     {name: 'high knees', reps: 20},

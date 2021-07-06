@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   exerciseTitle: {
+    textTransform: 'capitalize',
     fontSize: 24,
     marginBottom: 8,
     textAlign: 'center'

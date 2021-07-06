@@ -25,14 +25,14 @@ export default function ExerciseDescriptionModal({name, imgs, description}) {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{name} description:</Text>
-            <Text style={styles.modalText}>{description}</Text>
+            <Text style={styles.descriptionText}>{description}</Text>
             <ScrollView  horizontal style={styles.scrollView}>
               {arrayOfImages}
             </ScrollView>
             
 
             <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: '#2196F3' }}
+              style={{ ...styles.openButton, backgroundColor: '#00FF66' }}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}>
@@ -101,9 +101,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  descriptionText: {
+    fontSize: 18,
+    textAlign: 'left',
+    lineHeight: 26,
+    marginBottom: 16
+  },
   modalText: {
     fontSize: 24,
-    marginBottom: 15,
+    textTransform: 'capitalize',
+    marginBottom: 12,
     textAlign: 'center',
   },
 });

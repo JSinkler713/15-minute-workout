@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Button } from 'react-native';
+import { ScrollView, StyleSheet, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import EditScreenInfo from '../components/EditScreenInfo';
@@ -70,9 +70,9 @@ export default function TabTwoScreen() {
       <Text style={styles.title}>Today's exercises</Text>
       <Button title='Get different exercises' onPress={()=> { setNewExercises(true)}} />
       <View style={styles.bigSeperator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <View style={styles.exerciseContainer}>
+      <ScrollView style={styles.exerciseContainer}>
         {exercises}
-      </View>
+      </ScrollView>
       <View style={styles.bigSeperator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <Timer done={false} startTime={startTimer} />
       <Button color='green' onPress={()=> { setStartTimer(!startTimer); if (!hasBeenStarted) {setHasBeenStarted(true)
@@ -84,6 +84,7 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   exerciseContainer: {
     marginBottom: 2,
+    overflow: 'scroll',
   },
   container: {
     alignItems: 'center',
@@ -99,7 +100,8 @@ const styles = StyleSheet.create({
   },
   exerciseTitle: {
     textTransform: 'capitalize',
-    fontSize: 24,
+    fontSize: 20,
+    fontWeight: '600',
     marginBottom: 8,
     textAlign: 'center'
   },
@@ -122,6 +124,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   exerciseButton: {
-    marginVertical: 8,
+    marginVertical: 4,
   }
 });

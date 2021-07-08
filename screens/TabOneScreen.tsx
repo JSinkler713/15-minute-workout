@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import Layout from '../constants/Layout';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import TabTwoScreen from './TabTwoScreen'
@@ -17,10 +17,10 @@ import {
 export default function TabOneScreen({navigation}) {
 
   React.useEffect(()=> {
-    const setDevice = async()=> {
-      await setTestDeviceIDAsync('EMULATOR');
-    }
-    setDevice()
+      const setDevice = async()=> {
+        await setTestDeviceIDAsync('EMULATOR');
+      }
+      setDevice()
   }, [])
 
   function bannerError() {
